@@ -1,31 +1,18 @@
-import React, { useEffect, useRef } from "react";
-import { Grid } from "@material-ui/core";
-import Main from "./components/Main/Main";
-import useStyles from "././styles";
-import getItems from "./scripts/Notion";
-
-async function App() {
-  const classes = useStyles();
-  const main = useRef(null);
-  const executeScroll = () => main.current.scrollIntoView();
-  return (
-    <div>
-      <Grid
-        className={classes.grid}
-        container
-        spacing={0}
-        alignItems="center"
-        jusitfy="center"
-        style={{ height: "100vh" }}
-      >
-        <Grid item xs={12} sm={4} className={classes.mobile}></Grid>
-        <Grid ref={main} item xs={12} sm={3} className={classes.main}>
-          <Main />
-        </Grid>
-        <Grid item xs={12} sm={4} className={classes.desktop}></Grid>
-        <Grid item xs={12} sm={4} className={classes.last}></Grid>
-      </Grid>
-    </div>
-  );
+import React, { Component } from 'react';
+import Example1 from './Example1';
+import Example2 from './Example2';
+import Example3 from './Example3';
+ 
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+				<Example1></Example1>
+				<Example2></Example2>
+				<Example3></Example3>
+            </div>
+        );
+    }
 }
+ 
 export default App;
