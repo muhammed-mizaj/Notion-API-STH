@@ -39,3 +39,5 @@ async function getPage(id) {
   const response = await notion.pages.retrieve({ page_id: pageId });
   return response;
 }
+
+export default getItems;

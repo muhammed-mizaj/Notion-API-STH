@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import getItems from "./scripts/Notion";
 function App() {
   return (
     <div className="App">
