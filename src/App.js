@@ -4,7 +4,7 @@ import Main from "./components/Main/Main";
 import useStyles from "././styles";
 import getItems from "./scripts/Notion";
 
-const App = () => {
+async function App() {
   const classes = useStyles();
   const main = useRef(null);
   const executeScroll = () => main.current.scrollIntoView();
@@ -27,5 +27,5 @@ const App = () => {
       </Grid>
     </div>
   );
-};
+}
 export default App;
