@@ -1,7 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import getItems from "./scripts/Notion";
-function App() {
+async function App() {
+  console.log(await getItems());
   return (
     <div className="App">
       <header className="App-header">
