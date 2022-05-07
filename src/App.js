@@ -1,26 +1,31 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useEffect, useRef } from "react";
+import { Grid } from "@material-ui/core";
+import Main from "./components/Main/Main";
+import useStyles from "././styles";
 import getItems from "./scripts/Notion";
-async function App() {
-  console.log(await getItems());
+
+const App = () => {
+  const classes = useStyles();
+  const main = useRef(null);
+  const executeScroll = () => main.current.scrollIntoView();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Grid
+        className={classes.grid}
+        container
+        spacing={0}
+        alignItems="center"
+        jusitfy="center"
+        style={{ height: "100vh" }}
+      >
+        <Grid item xs={12} sm={4} className={classes.mobile}></Grid>
+        <Grid ref={main} item xs={12} sm={3} className={classes.main}>
+          <Main />
+        </Grid>
+        <Grid item xs={12} sm={4} className={classes.desktop}></Grid>
+        <Grid item xs={12} sm={4} className={classes.last}></Grid>
+      </Grid>
     </div>
   );
-}
-
+};
 export default App;
