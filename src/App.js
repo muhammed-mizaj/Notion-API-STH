@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Grid } from '@material-ui/core';
 import Main from './components/Main/Main';
 import useStyles from '././styles';
+import getItems from "./scripts/Notion";
 
 const App = () => {
     const classes = useStyles();  
