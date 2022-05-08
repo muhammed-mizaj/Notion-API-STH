@@ -26,8 +26,17 @@ getItems();
     
   }
 }, [])
+const filteredDetails = person?.filter((item,index)=>{
+  // let month = await new Date(item.Date).getMonth()+1
+  // console.log(month);
+  // console.log("state",currentMonth);
+  // console.log("state",currentMonth);
+  return currentMonth===-1?item:new Date(item.Date).getMonth()+1===currentMonth
 
-console.log(person)
+})
+console.log("filter",filteredDetails);
+
+console.log(person,currentMonth)
 let income_sum = 0;
 let expense_sum = 0;
 let ch=-1;
@@ -41,18 +50,32 @@ switch(month)
   return (
 
     <div className='text-center '>
+          <div className='p-2'>
+      <select onChange={(e)=>{
+        setcurrentMonth(parseInt(e.target.value))
+        }}>
+        <option value={-1}>All</option>
+        <option value={1}>January</option>
+        <option value={2}>February</option>
+        <option value={3}>March</option>
+        <option value={4}>April</option>
+        <option value={5}>May</option>
+        <option value={6}>June</option>
+        <option value={7}>July</option>
+        <option value={8}>August</option>
+        <option value={9}>September</option>
+        <option value={10}>October</option>
+        <option value={11}>November</option>
+        <option value={12}>December</option>
+      </select>
+    </div>
       <h1 className=' text-4xl bg-indigo-700 opacity-70 ml-2 mr-2'>Income</h1>
         {
-            person?.map((item,index)=>{
+            filteredDetails?.map((item,index)=>{
               if(item.Type=="Income")
               {
                 income_sum+=parseInt(item.Price);
-              }
-              else
-              {
-                expense_sum+=parseInt(item.Price);
-              }
-                return (
+              } return (
                   <div key={index} className="bg-green-500 m-5 rounded-lg ">
                     
                     {item.Type=="Income"?(<div>
@@ -78,7 +101,12 @@ switch(month)
         <h1 className='text-4xl bg-indigo-700 opacity-70 ml-2 mr-2'>Expense</h1>
         {
           
-          person?.map((item,index)=>{
+          filteredDetails?.map((item,index)=>{
+            if(item.Type=="Expense")
+              {
+                expense_sum+=parseInt(item.Price);
+              }
+              
               return (
                 <div key={index} className="bg-red-500 m-5 rounded-lg ">
                   
