@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect,useState } from 'react';
 const Card = () => {
+  let d =new Date();
 const [person,setPerson] = useState([]);
 const [currentMonth,setcurrentMonth]=useState(-1);
 useEffect(() => {
@@ -132,6 +133,8 @@ switch(month)
     
         }
             <p className='bg-black text-white t-8xl rounded-xl p-2 w-60 m-2 '>
+              
+              {/* Total income in {month===-1?"":d.setMonth(currentMonth).toString} is ₹ */}
               Total income is ₹
 {income_sum}
               
