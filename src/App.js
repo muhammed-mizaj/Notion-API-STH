@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Card from './pages/Card';
+import Title from './pages/Title';
 function App() {
   // useEffect(()=>{
   //   (async()=>{
@@ -22,7 +23,7 @@ function App() {
   // },[]);
   return (
     <div className="App bg-gray-900 h-screen p-2">
-      
+      <Title/>
       <Card/>
     </div>
   );
